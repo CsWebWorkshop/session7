@@ -5,6 +5,12 @@ $request = explode('?', $request)[0];
 if($request == '' || $request == '/') {
     require './pages/main.php';
 }
+elseif($request == '/login' || $request == '/login/') {
+    require './pages/login.html';
+}
+elseif($request == '/signup' || $request == '/signup/') {
+    require './pages/signup.html';
+}
 elseif (preg_match('/^\/products(\/)/', $request)) {
     $request = str_replace('/products', '', $request);
     $part = explode('/', $request);

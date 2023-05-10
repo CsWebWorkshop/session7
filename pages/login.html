@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="./assets/styles/form.css">
+</head>
+<body>
+    <section class="container">
+        <section class="form-container">
+
+            <h1 class="form-title">Login</h1>
+
+            <form action="./post.php" method="post" class="form">
+
+                <label for="email">Email:</label>
+                <input type="email" name="email" id="email">
+                
+                <label for="password">Password:</label>
+                <input type="password" name="pass" id="password">
+
+                <div class="checkbox-container">
+                    <input type="checkbox" name="remember" id="checkbox">
+                    <label for="checkbox">Remember Me</label>
+                </div>
+
+                <input type="submit" name="submit" class="submit-btn" value="Login">
+                <div class="link">Not Registered? <a href="/signup">Sign up</a></div>
+
+            </form>
+        
+        </section>
+    </section>
+</body>
+</html>
