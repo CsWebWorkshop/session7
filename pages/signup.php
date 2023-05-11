@@ -2,11 +2,31 @@
     $errors = [];
     if($_SERVER["REQUEST_METHOD"] == 'POST') {
         if(isset($_POST['email']) && isset($_POST['pass']) && isset($_POST['rpass'])) {
+            $_POST['email'] = trim($_POST['email']);
+            $_POST['pass'] = trim($_POST['pass']);
+            $_POST['rpass'] = trim($_POST['rpass']);
             if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
                 $errors[] = 'Invalid Email';
             }
-            if (!preg_match("/^[0-9]+$/", $_POST['pass'])) {
-                $errors[] = 'Invalid Password';
+            if (!preg_match("/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/", $_POST['pass'])) {
+                if(strlen($_POST['pass']) < 8) {
+                    $errors[] = 'Password must be least 8 Character';
+                }
+                elseif(!preg_match("/[A-Z]/", $_POST['pass'])) {
+                    $errors[] = 'Password must contain at least 1 Captial Character';
+                }
+                elseif(!preg_match("/[a-z]/", $_POST['pass'])) {
+                    $errors[] = 'Password must contain at least 1 Small Character';
+                }
+                elseif(!preg_match("/[0-9]/", $_POST['pass'])) {
+                    $errors[] = 'Password must contain at least 1 Number Character';
+                }
+                elseif(!preg_match("/[#?!@$%^&*-]/", $_POST['pass'])) {
+                    $errors[] = 'Password must contain at least 1 Special Character';
+                }
+                else {
+                    $errors[] = 'Password has invalid characters';
+                }
             }
             if ($_POST['pass'] !== $_POST['rpass']) {
                 $errors[] = 'Repeat Password is not the same';
