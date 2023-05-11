@@ -4,7 +4,7 @@
         if(isset($_POST['email']) && isset($_POST['pass'])) {
             if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
                 $errors[] = 'Invalid Email';
-            } elseif (!preg_match("/^[0-9]+$/", $_POST['pass'])) {
+            } elseif (!preg_match("/^\d{4,}[a-z]+[0-9]*[@#\$&]$/", $_POST['pass'])) {
                 $errors[] = 'Invalid Password';
             } else {
                 if ($_POST['email'] == "m.khoshdel81@gmail.com" && $_POST['pass'] == '1234') {
