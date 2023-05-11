@@ -6,10 +6,10 @@ if($request == '' || $request == '/') {
     require './pages/main.php';
 }
 elseif($request == '/login' || $request == '/login/') {
-    require './pages/login.html';
+    require './pages/login.php';
 }
 elseif($request == '/signup' || $request == '/signup/') {
-    require './pages/signup.html';
+    require './pages/signup.php';
 }
 elseif (preg_match('/^\/products(\/)/', $request)) {
     $request = str_replace('/products', '', $request);

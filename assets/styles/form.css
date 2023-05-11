@@ -6,6 +6,10 @@
     font-family: 'Instrument Sans', sans-serif;
 }
 
+.error {
+    color: rgb(135, 0, 0);
+}
+
 .container{
     min-height: 100vh;
     background-image: url("https://cdn.wallpapersafari.com/47/23/Vt3Pw6.jpg");
